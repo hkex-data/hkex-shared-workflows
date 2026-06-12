@@ -52,7 +52,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ inputs.registry }}/${{ inputs.image_name != '' && inputs.image_name || github.repository }}
+          images: ${{ inputs.registry }}/${{ inputs.image_name || github.repository }}
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}
